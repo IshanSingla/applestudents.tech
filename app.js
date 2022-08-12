@@ -1,26 +1,47 @@
 var express = require("express");
-var device = require("express-device");
-const mongoose = require("mongoose");
 require("dotenv").config();
+
 var app = express();
-app.use(device.capture());
+
+//setting view engine to ejs
+app.set("view engine", "ejs");
 
 const Links = require("./req/schema.js");
 const database = require("./req/config");
 
-app.get("/", (req, res) => {
-  res.redirect("https://ieee.chitkara.edu.in");
+// Landing page
+app.get("/", async (req, res) => {
+
+  res.status(200).render("index");
 });
 
-app.get("/:route", async (req, res) => {
+// All Events page
+app.get("/event", async (req, res) => {
+  const data = await Links.find().exec();
+  res.status(200).send("Events Page"+JSON.stringify(data));
+});
+
+// Event Dynamic Page
+app.get("/event/:route", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
-  if (req.device.type == "phone") {
+  res.status(200).send("event page with button"+ JSON.stringify(data));
+});
+
+app.get("/event/:route/app", async (req, res) => {
+  const data = await Links.findOne(req.params).exec();
+  if (req.headers['user-agent'].includes("Android")){
     res.redirect(
       "https://play.google.com/store/apps/details?id=tech.developerdhairya.ieee_chitkara"
     );
-  } else {
-    res.redirect(data.link);
+  }else{
+    res.status(200).send("App is not ready for youre platform");
   }
+});
+
+// Event Form Dynamic Page
+app.get("/event/:route/form", async (req, res) => {
+  const data = await Links.findOne(req.params).exec();
+  res.status(200).send("form page for data: " + JSON.stringify(data));
 });
 
 app.listen(Number(process.env.PORT), () => {

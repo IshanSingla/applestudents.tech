@@ -23,7 +23,7 @@ app.get("/event", async (req, res) => {
 // Event Dynamic Page
 app.get("/event/:route", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
-  if (data) {
+  if (!data) {
     res.status(404).send("404 event not foundNot Found");
   } else {
     res.status(200).send("event page with button" + JSON.stringify(data));
@@ -32,7 +32,7 @@ app.get("/event/:route", async (req, res) => {
 
 app.get("/event/:route/app", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
-  if (data) {
+  if (!data) {
     res.status(404).send("404 event not foundNot Found");
   } else {
     if (data.isRegistrationOpen) {
@@ -52,7 +52,7 @@ app.get("/event/:route/app", async (req, res) => {
 // Event Form Dynamic Page
 app.get("/event/:route/form", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
-  if (data) {
+  if (!data) {
     res.status(404).send("404 event not foundNot Found");
   } else {
     if (data.isRegistrationOpen) {

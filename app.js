@@ -43,7 +43,18 @@ app.get("/event/:route/app", async (req, res) => {
           "https://play.google.com/store/apps/details?id=tech.developerdhairya.ieee_chitkara"
         );
       } else {
-        res.status(200).render('eventStatus',{Status: true});
+        var Name = "Unknown OS";
+        if (req.headers["user-agent"].includes("Win")) Name = 
+          "Windows OS";
+        if (req.headers["user-agent"].includes("Mac")) Name = 
+          "Macintosh";
+        if (req.headers["user-agent"].includes("Linux")) Name = 
+          "Linux OS";
+        if (req.headers["user-agent"].includes("Android")) Name = 
+          "Android OS";
+        if (req.headers["user-agent"].includes("like Mac")) Name = 
+          "iOS";
+        res.status(200).render('eventStatus',{Status: true,Name});
       }
     } else {
       res.status(200).render('eventStatus',{Status:false});

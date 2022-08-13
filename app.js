@@ -6,6 +6,8 @@ var app = express();
 //setting view engine to ejs
 app.set("view engine", "ejs");
 
+app.use(express.static('public'));
+
 const Links = require("./req/schema.js");
 const database = require("./req/config");
 
@@ -15,9 +17,9 @@ app.get("/", async (req, res) => {
 });
 
 // All Events page
-app.get("/event", async (req, res) => {
+app.get("/events", async (req, res) => {
   const data = await Links.find().exec();
-  res.status(200).send("Events Page" + JSON.stringify(data));
+  res.render("events",{eventData:data});
 });
 
 // Event Dynamic Page
@@ -26,11 +28,12 @@ app.get("/event/:route", async (req, res) => {
   if (!data) {
     res.status(404).send("404 event not foundNot Found");
   } else {
-    res.status(200).send("event page with button" + JSON.stringify(data));
+    res.render('event',{data})
   }
 });
 
 app.get("/event/:route/app", async (req, res) => {
+  console.log(req.headers["user-agent"].split(" ")[1].substring(1));
   const data = await Links.findOne(req.params).exec();
   if (!data) {
     res.status(404).send("404 event not foundNot Found");
@@ -41,10 +44,10 @@ app.get("/event/:route/app", async (req, res) => {
           "https://play.google.com/store/apps/details?id=tech.developerdhairya.ieee_chitkara"
         );
       } else {
-        res.status(200).send("App is not ready for youre platform");
+        res.status(200).render('eventStatus',{status:"app not ready for your device"});
       }
     } else {
-      res.status(200).send("form has been closed ");
+      res.status(200).render('eventStatus',{status:"form has been closed "});
     }
   }
 });

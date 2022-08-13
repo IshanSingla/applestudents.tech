@@ -1,6 +1,7 @@
 <%- include('partials/header') -%> 
     <% if( Status ) { %> 
         <h1>App is not ready for <%= Name %> </h1>
+        <button onclick="window.location.href='/event/<%=data.route%>/form'">Continue with Browser</button>
     <% } %> 
     <% if(! Status ) { %> 
         <h1>Form Closed</h1>

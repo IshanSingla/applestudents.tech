@@ -1,7 +1,7 @@
 <%- include("partials/header") -%>
 
 
-<div class="flex container">
+<div class="flex container mainc">
     <% for( let i = 0; i < eventData.length; i++ ) { %>
         <div class="event" onclick="window.location.href='/event/<%=eventData[i].route%>'">
             <h2><%= eventData[0].eventName%></h2>

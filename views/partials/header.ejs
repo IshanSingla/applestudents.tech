@@ -1,33 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>IEEE-CIET</title>
-  <meta charset="utf-8">
-  <meta
-    http-equiv="Content-Security-Policy"
-    content="font-src * 'unsafe-inline';"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="assets/ieee.png" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- NAVBAR SECTION -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-header">
-              <p class="navbar-brand">IEEE-CIET</p>
-            </div>
-              <ul class="nav navbar-nav navbar-right">
-                <!-- 6 -->
-                <li id="home"><a href="/">HOME</a></li>
-                <li id="events"><a href="/events">EVENTS</a></li>
-                <!-- <li><img src="" alt=""></li> -->
-                <!-- <li id="about"><a href="/about">ABOUT US</a></li> -->
-                <!-- <li id="contact"><a href="/contact">CONTACT US</a></li> -->
-              </ul>
-        </div>
+      <ul>
+        <li>
+          <a href="index.html">
+            <img src="assets/ieee.png" class="logo-image" alt="logo" />
+          </a>
+        </li>
+        <li><a href="/" class="nav-item">Home</a></li>
+        <li><a href="/events" class="nav-item">Events</a></li>
+        <li><a href="/about" class="nav-item">About</a></li>
+      </ul>
     </nav>
-      
-    <body>
-      <div class="container">
-      
+
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+      <span href="#home" class="active"
+        ><img src="assets/ieee.png" alt=""
+      /></span>
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">Events</a>
+        <a href="contact.html" class="nav-item">About</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>

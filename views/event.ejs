@@ -1,9 +1,13 @@
 <%- include("partials/header") -%>
-<h1><%=data.eventName%></h1>
-<img class="event-img" src="<%=data.eventPosterURL%>" alt="">
-<p><%=data.eventDescription%></p>
-<button onclick="window.location.href='/event/<%=data.route%>/app'">Continue with app</button>
-<button onclick="window.location.href='/event/<%=data.route%>/form'">Continue with web</button>
+
+
+<div class="main">
+    <h1><%=data.eventName%></h1>
+    <img class="event-img" src="<%=data.eventPosterURL%>" alt="">
+    <p><%=data.eventDescription%></p>
+    <button onclick="window.location.href='/event/<%=data.route%>/app'">Continue with app</button>
+    <button onclick="window.location.href='/event/<%=data.route%>/form'">Continue with web</button>
+</div>
 
 
 <%- include("partials/footer") -%>

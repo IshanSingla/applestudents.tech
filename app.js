@@ -33,7 +33,6 @@ app.get("/event/:route", async (req, res) => {
 });
 
 app.get("/event/:route/app", async (req, res) => {
-  console.log(req.headers["user-agent"].split(" ")[1].substring(1));
   const data = await Links.findOne(req.params).exec();
   if (!data) {
     res.status(404).send("404 event not foundNot Found");
@@ -44,10 +43,10 @@ app.get("/event/:route/app", async (req, res) => {
           "https://play.google.com/store/apps/details?id=tech.developerdhairya.ieee_chitkara"
         );
       } else {
-        res.status(200).render('eventStatus',{status:"app not ready for your device"});
+        res.status(200).render('eventStatus',{Status: true});
       }
     } else {
-      res.status(200).render('eventStatus',{status:"form has been closed "});
+      res.status(200).render('eventStatus',{Status:false});
     }
   }
 });
@@ -61,7 +60,7 @@ app.get("/event/:route/form", async (req, res) => {
     if (data.isRegistrationOpen) {
       res.status(200).send("form page for data: " + JSON.stringify(data));
     } else {
-      res.status(200).send("form has been closed ");
+      res.status(200).render('eventStatus',{Status:false});
     }
   }
 });

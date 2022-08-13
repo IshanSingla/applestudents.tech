@@ -1,4 +1,8 @@
-<%- include('partials/header') -%>
-
-
-<%- include('partials/footer') -%> 
+<%- include('partials/header') -%> 
+    <% if( Status ) { %> 
+        <h1>App is not ready</h1>
+    <% } %> 
+    <% if(! Status ) { %> 
+        <h1>Form Closed</h1>
+    <%} %> 
+<%- include('partials/footer') -%>

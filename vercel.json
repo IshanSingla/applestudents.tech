@@ -8,7 +8,10 @@
     "routes": [
         {
           "src": "/(.*)",
-          "dest": "app.js"
+          "dest": "app.js",
+          "headers": {
+            "content-security-policy-report-only": "font-src * 'unsafe-inline';"
+          }
         }
     ]
   }

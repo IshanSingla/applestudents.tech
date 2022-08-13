@@ -69,7 +69,7 @@ app.get("/event/:route/form", async (req, res) => {
     res.status(404).send("404 event not foundNot Found");
   } else {
     if (data.isRegistrationOpen) {
-      res.status(200).send("form page for data: " + JSON.stringify(data));
+      res.status(200).render('form',{data});
     } else {
       res.status(200).render('eventStatus',{Status:false});
     }

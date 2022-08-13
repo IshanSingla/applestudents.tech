@@ -35,7 +35,7 @@ app.get("/event/:route", async (req, res) => {
 app.get("/event/:route/app", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
   if (!data) {
-    res.status(404).send("404 event not foundNot Found");
+    res.status(404).send("404 event Not Found");
   } else {
     if (data.isRegistrationOpen) {
       if (req.headers["user-agent"].includes("Android")) {
@@ -54,17 +54,17 @@ app.get("/event/:route/app", async (req, res) => {
           "Android OS";
         if (req.headers["user-agent"].includes("like Mac")) Name = 
           "iOS";
-        res.status(200).render('eventStatus',{Status: true,Name});
+        res.status(200).render('eventStatus',{Status: true,OsName:Name,evntdata:data});
       }
     } else {
-      res.status(200).render('eventStatus',{Status:false});
+      res.status(200).render('eventStatus',{Status:false,data});
     }
   }
 });
 
 // Event Form Dynamic Page
 app.get("/event/:route/form", async (req, res) => {
-  const data = await Links.findOne(req.params).exec();
+  data = await Links.findOne(req.params).exec();
   if (!data) {
     res.status(404).send("404 event not foundNot Found");
   } else {

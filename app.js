@@ -23,6 +23,28 @@ app.use(
     policy: ["origin", "unsafe-url"],
   })
  );
+ app.use(
+  helmet.expectCt({
+    maxAge: 96400,
+    enforce: true,
+    reportUri: "https://securecoding.com/report",
+  })
+ );
+ app.use(
+  helmet.frameguard({
+    action: "deny",
+  })
+ );
+ app.use(helmet.hidePoweredBy());
+ app.use(
+  helmet.hsts({
+    maxAge: 123456,
+    includeSubDomains: false,
+  })
+ );
+ app.use(helmet.ieNoOpen());
+ app.use(helmet.noSniff());
+ app.use(helmet.xssFilter());
 
 //setting view engine to ejs
 app.set("view engine", "ejs");

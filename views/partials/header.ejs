@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="icon" href="assets/ieee.png" />
     <link rel="stylesheet" href="/css/styles.css">
     <title>Document</title>
@@ -23,7 +26,7 @@
 
     <!-- Top Navigation Menu -->
     <div class="topnav">
-      <span href="#home" class="active"
+      <span href="/" class="active"
         ><img src="assets/ieee.png" alt=""
       /></span>
       <!-- Navigation links (hidden by default) -->
@@ -37,5 +40,15 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+      }
+    </script>
 
     

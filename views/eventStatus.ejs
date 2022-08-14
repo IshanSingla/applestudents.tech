@@ -2,7 +2,8 @@
     <% if( Status ) { %> 
         <div class="main">
             <h1>App is not ready for <%= OsName %> </h1>
-            <button onclick="window.location.href='/event/<%=evntdata.route%>/form'">Continue with Browser</button>
+
+            <a href='/event/<%=evntdata.route%>/form'><button >Continue with Browser</button></a>
         </div>
     <% } %> 
     <% if(! Status ) { %> 

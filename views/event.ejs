@@ -3,7 +3,7 @@
 
 <div class="main">
     <h1><%=data.eventName%></h1>
-    <img class="event-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt=""/>
+    <img class="event-img" src="<%=data.eventPosterURL%>" alt=""/>
     <p><%=data.eventDescription%></p>
     <a href='/event/<%=data.route%>/app'><button href=>Continue with app</button></a>
     <a href='/event/<%=data.route%>/form'><button href=>Continue with web</button></a>

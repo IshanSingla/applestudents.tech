@@ -8,10 +8,12 @@
     "routes": [
         {
           "src": "/(.*)",
-          "dest": "app.js",
-          "headers": {
-            "content-security-policy-report-only": "font-src * 'unsafe-inline';"
-          }
+          "dest": "app.js"
         }
-    ]
+    ],
+    "functions": {
+      "app.js": {
+        "maxDuration": 60
+      }
+    }
   }

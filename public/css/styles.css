@@ -130,6 +130,9 @@
     margin-top: 5rem;
     transition: var(--transition);
   }
+  .ish {
+    float: right; margin: 0.5rem; border-radius: 3px
+  }
   
   .btn:hover {
     transform: scale(1.1);

@@ -1,7 +1,28 @@
 var express = require("express");
 require("dotenv").config();
+var helmet =require('helmet');
 
 var app = express();
+app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "script-src": ["'self'", "securecoding.com"],
+      "style-src": null,
+    },
+  })
+ );
+ app.use(
+  helmet.dnsPrefetchControl({
+    allow: true,
+  })
+ );
+ app.use(
+  helmet.referrerPolicy({
+    policy: ["origin", "unsafe-url"],
+  })
+ );
 
 //setting view engine to ejs
 app.set("view engine", "ejs");

@@ -6,6 +6,7 @@ const path = require("path");
 var app = express();
 app.use(helmet());
 app.set('views', path.join(__dirname, 'views'));
+app.set('public', path.join(__dirname, 'public'));
 //setting view engine to ejs
 app.set("view engine", "ejs");
 

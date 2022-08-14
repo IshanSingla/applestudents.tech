@@ -1,14 +1,14 @@
 <%- include("partials/header") -%>
 
-
 <div class="flex container mainc">
-    <% for( let i = 0; i < eventData.length; i++ ) { %>
-        <div class="event" onclick="window.location.href='/event/<%=eventData[i].route%>'">
-            <h2><%= eventData[0].eventName%></h2>
-            <img class="event-img" src="<%= eventData[i].eventPosterURL%>" alt="">
-        </div>
-    <% } %>
+  <% for( let i = 0; i < eventData.length; i++ ) { %>
+  <a href="event/<%=eventData[i].route%>">
+    <div class="event">
+      <h2><%= eventData[0].eventName%></h2>
+      <img class="event-img" src="<%= eventData[i].eventPosterURL%>" alt="" />
+    </div>
+  </a>
+  <% } %>
 </div>
-
 
 <%- include("partials/footer") -%>

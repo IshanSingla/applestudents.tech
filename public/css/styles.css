@@ -24,6 +24,8 @@
     top: 0;
     width: 100%;
     box-shadow: 0px 2px 10px #888888;
+    height: 4rem;
+    background-color: var(--color-primary);
   }
   
   .navbar ul {
@@ -31,6 +33,10 @@
     list-style-type: none;
     overflow: hidden;
     background-color: var(--color-primary);
+    float: right;
+  }
+  .right{
+    float: right;
   }
   
   .navbar a {
@@ -44,21 +50,21 @@
     display: block;
   }
   
-  .nav-item:hover {
+  /* .nav-item:hover {
     background-color: rgba(32, 126, 209, 0.329);
     cursor: default;
-  }
+  } */
   
   .logo-image {
-    width: 80px;
-    height: 60px;
+    width: 60px;
+    height: 50px;
     border-radius: 50%;
     transition: var(--transition);
   }
   
-  .logo-image:hover {
+  /* .logo-image:hover {
     background: white;
-  }
+  } */
   
   .nav-item {
     margin-top: 0.8rem;

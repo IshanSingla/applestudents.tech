@@ -1,6 +1,10 @@
+
 <%- include('partials/header') -%> 
+<br/>
+<br/>
+<br/>
     <% if( Status ) { %> 
-        <div class="main">
+        <div class="flex container mainc">
             <h1>App is not ready for <%= OsName %> </h1>
 
             <a href='/event/<%=evntdata.route%>/form'><button >Continue with Browser</button></a>
@@ -9,4 +13,7 @@
     <% if(! Status ) { %> 
         <h1>Form Closed</h1>
     <%} %> 
+    <br/>
+<br/>
+<br/>
 <%- include('partials/footer') -%>

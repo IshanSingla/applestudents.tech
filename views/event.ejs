@@ -1,17 +1,17 @@
 <%- include("partials/header") -%>
-
-<br/>
-<br/>
-<br/>
-<div class="flex  mainc">
-    <h1><%=data.eventName%></h1>
-    <img class="event-img" src="<%=data.eventPosterURL%>" alt=""/>
-    <p><%=data.eventDescription%></p>
-    <a href='/event/<%=data.route%>/app'><button href=>Continue with app</button></a>
-    <a href='/event/<%=data.route%>/form'><button href=>Continue with web</button></a>
+<div class="flex">
+    <div class="evnt-card d-flex justify-content-start">
+        <img class="evnt-img" src="<%=data.eventPosterURL%>" alt=""/>
+        <div class="evnt-body d-flex justify-content-around flex-column">
+            <h1 class="evnt-title"><%=data.eventName%></h1>
+            <p class="evnt-text"> <%=data.eventDescription%></p>
+            <div class="evnt-btn d-flex justify-content-around">
+                <button class="btn btn-outline-primary btn-lg" onclick="window.location='/event/<%=data.route%>/app'">Register with app</button>
+                <button class="btn btn-outline-danger btn-lg" onclick="window.location='/event/<%=data.route%>/form'">Register with web</button>
+            </div>
+        </div>
+    </div>
 </div>
-<br/>
-<br/>
-<br/>
 
 <%- include("partials/footer") -%>
+

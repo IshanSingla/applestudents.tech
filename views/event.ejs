@@ -8,8 +8,8 @@
             <h1 class="evnt-title"><%=data.eventName%></h1>
             <div class="date"></div>
             <div class="evnt-btn d-flex justify-content-around">
-                <button class="btn btn-outline-primary btn-lg" onclick="window.location='/event/<%=data.route%>/app'">Register with app</button>
-                <button class="btn btn-outline-danger btn-lg" onclick="window.location='/event/<%=data.route%>/form'">Register with web</button>
+                <button class="btn btn-outline-primary btn-lg" onclick="window.location='<%=data.route%>/app'">Register with app</button>
+                <button class="btn btn-outline-danger btn-lg" onclick="window.location='<%=data.route%>/form'">Register with web</button>
             </div>
             <p class="evnt-text"> <%=data.eventDescription%></p>
         </div>

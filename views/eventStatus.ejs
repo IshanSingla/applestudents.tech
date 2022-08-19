@@ -1,19 +1,13 @@
 
 <%- include('partials/header') -%> 
-<br/>
-<br/>
-<br/>
+<div class="evnt-status">
     <% if( Status ) { %> 
-        <div class="flex container mainc">
             <h1>App is not ready for <%= OsName %> </h1>
-
-            <a href='/event/<%=evntdata.route%>/form'><button >Continue with Browser</button></a>
-        </div>
+            <!-- <br> -->
+            <a href='/<%=evntdata.route%>/form'><button class="btn btn-outline-danger btn-lg">Continue with Browser</button></a>
     <% } %> 
     <% if(! Status ) { %> 
         <h1>Form Closed</h1>
     <%} %> 
-    <br/>
-<br/>
-<br/>
+</div>
 <%- include('partials/footer') -%>

@@ -374,6 +374,17 @@
   padding: 0 2%;
   font-family: 'Poppins', sans-serif;
 }
+.iframe-form{
+  height: 100vh;
+  width: 100vw;
+}
+.evnt-status{
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
 
 @media only screen and (min-width: 700px) {
   .evnt-card{

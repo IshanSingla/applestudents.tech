@@ -1,22 +1,53 @@
-<%- include("partials/header") -%>
-
-    <div class="evnt-card">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/assets/ieee.png" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="topFrontSection">
+      <div class="navLogo" href="/">
+        <div>
+          <img src="/assets/ieee.png" class="logo" alt="" />
+        </div>
+      </div>
+      <div class="evnt-card">
         <div class="envt-img-container">
-            <img class="evnt-img" src="<%=data.eventPosterURL%>" alt=""/>
+          <img class="evnt-img" src="<%=data.eventPosterURL%>" alt="" />
         </div>
         <div class="evnt-body d-flex justify-content-around flex-column">
-            <div>
-                <h1 class="evnt-title"><%=data.eventName%></h1>
-                <br>
-                <div class="date-time"> <%= data.eventCreationTimestamp.toString()%></div>
+          <div>
+            <h1 class="evnt-title"><%=data.eventName%></h1>
+            <br />
+            <div class="date-time">
+              <%= data.eventCreationTimestamp.toString()%>
             </div>
-            <div class="evnt-btn d-flex justify-content-around">
-                <button class="btn btn-outline-primary btn-lg" onclick="window.location='<%=data.route%>/app'">Register with app</button>
-                <button class="btn btn-outline-danger btn-lg" onclick="window.location='<%=data.route%>/form'">Register with web</button>
-            </div>
-            <p class="evnt-text"> <%=data.eventDescription%></p>
+          </div>
+          <div class="evnt-btn d-flex justify-content-around">
+            <button
+              class="btn btn-outline-primary btn-lg"
+              onclick="window.location='<%=data.route%>/app'"
+            >
+              Register with app
+            </button>
+            <button
+              class="btn btn-outline-danger btn-lg"
+              onclick="window.location='<%=data.route%>/form'"
+            >
+              Register with web
+            </button>
+          </div>
+          <p class="evnt-text"><%=data.eventDescription%></p>
         </div>
-    </div>
-
-<%- include("partials/footer") -%>
-
+      </div>
+    </section>
+  </body>
+</html>

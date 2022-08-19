@@ -4,7 +4,7 @@ const Links = require("../models/events.schema");
 
 // All Events page
 router.get("/", async (req, res) => {
-  const data = await Links.find().exec();
+  // const data = await Links.find().exec();
   res.render("index", { eventData: data });
 });
 

@@ -1,10 +1,27 @@
-<%- include("partials/header") -%>
-<br>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/assets/ieee.png" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="topFrontSection">
+    <div class="navLogo" href="/">
+      <div>
+        <img src="/assets/ieee.png" class="logo" alt="">
+      </div>
+    </div>
+<br/>
 <div class="d-flex justify-content-around"></div>
     <h1 class="center">Registration Form of <%=data.eventName%></h1>
     <br>
-    <iframe class="iframe-form" src="<%=data.eventRegistrationURL%>"
-     frameborder="0">Loading…</iframe>
+    <iframe class="iframe-form" src="<%=data.eventRegistrationURL%>" frameborder="0">Loading…</iframe>
 </div>
-<%- include("partials/footer") -%>
-n
+</section> 
+
+</body>
+
+</html>

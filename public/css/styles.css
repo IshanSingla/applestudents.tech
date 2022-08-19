@@ -374,9 +374,19 @@
   padding: 0 2%;
   font-family: 'Poppins', sans-serif;
 }
+.date-time{
+  text-align: center;
+  font-size: 17px;
+}
 .iframe-form{
+  margin: 0;
+  padding: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  text-align: center;
+}
+.center{
+  text-align: center;
 }
 .evnt-status{
   height: 70vh;
@@ -386,7 +396,7 @@
   text-align: center;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 600px) {
   .evnt-card{
     display: flex;
     flex-direction: row;
@@ -395,5 +405,8 @@
   }
   .evnt-img-container{
     border-bottom: 1px solid black;
+  }
+  .iframe-form{
+    height: 60vh;
   }
 }

@@ -21,7 +21,7 @@ router.post("/create", async (req, res) => {
 router.get("/:route", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
   if (!data) {
-    res.status(404).send("404 event not foundNot Found");
+    res.status(404).render("404Error");
   } else {
     res.render("event", { data });
   }
@@ -31,7 +31,7 @@ router.get("/:route", async (req, res) => {
 router.get("/:route/app", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
   if (!data) {
-    res.status(404).send("404 event Not Found");
+    res.status(404).render("404Error");
   } else {
     if (data.isRegistrationOpen) {
       if (req.headers["user-agent"].includes("Android")) {
@@ -64,7 +64,7 @@ router.get("/:route/app", async (req, res) => {
 router.get("/:route/form", async (req, res) => {
   data = await Links.findOne(req.params).exec();
   if (!data) {
-    res.status(404).send("404 event not foundNot Found");
+    res.status(404).render("404Error");
   } else {
     if (data.isRegistrationOpen) {
       res.status(200).render("form", { data });
@@ -75,7 +75,7 @@ router.get("/:route/form", async (req, res) => {
 });
 
 router.get('*', async (req, res) =>{
-  res.send('404');
+  res.status(404).render("404Error");
 });
 
 module.exports = router;

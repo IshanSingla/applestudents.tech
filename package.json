@@ -4,7 +4,12 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "dev": "nodemon -e js,ejs,json app.js"
+    },
+    "nodemonConfig": {
+        "ignore": [],
+        "delay": 500
     },
     "keywords": [],
     "author": "",
@@ -15,5 +20,8 @@
         "express": "^4.14.0",
         "helmet": "^5.1.1",
         "mongoose": "^6.5.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.19"
     }
 }

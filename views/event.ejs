@@ -45,9 +45,15 @@
               Register with web
             </button>
           </div>
-          <p class="evnt-text"><%=data.eventDescription%></p>
+          <% var testVar=data.eventDescription %>
+          <p class="evnt-text">
+            <%- testVar.replace('\n', '<br><br>' ) %>
+          </p>
         </div>
       </div>
     </section>
+    <script>
+
+    </script>
   </body>
 </html>

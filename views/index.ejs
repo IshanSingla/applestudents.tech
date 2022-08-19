@@ -38,18 +38,16 @@
       </div>
     </div>
   </section> 
-  <script src="socket.io/socket.io.js" "></script>
+  <script src="socket.io/socket.io.js"></script>
   <script>
     const socket = io.connect('/');
     socket.on('connect', function() {
       console.log('connected');
-      socket.on("reconnect_error", (error) => {
+    socket.on("reconnect_error", (error) => {
      socket.disconnect()
    })
    socket.on("chat", (payload) => {
-      
       window.location.reload()
-      console.log(payload.message);
     });
     });
 

@@ -38,7 +38,22 @@
       </div>
     </div>
   </section> 
+  <script src="http://localhost:3000/socket.io/socket.io.js" "></script>
+  <script>
+    const socket = io.connect('http://localhost:3000');
+    socket.on('connect', function() {
+      console.log('connected');
+      socket.on("reconnect_error", (error) => {
+     socket.disconnect()
+   })
+   socket.on("chat", (payload) => {
+      
+      window.location.reload()
+      console.log(payload.message);
+    });
+    });
 
+  </script>
 </body>
 
 </html>

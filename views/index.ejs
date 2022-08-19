@@ -38,9 +38,9 @@
       </div>
     </div>
   </section> 
-  <script src="http://localhost:3000/socket.io/socket.io.js" "></script>
+  <script src="socket.io/socket.io.js" "></script>
   <script>
-    const socket = io.connect('http://localhost:3000');
+    const socket = io.connect('https://ieeewebapp.vercel.app/');
     socket.on('connect', function() {
       console.log('connected');
       socket.on("reconnect_error", (error) => {

@@ -333,174 +333,7 @@
     display: none;
   }
   
-  /* --------------- Footer ------------ */
-  footer{
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-    /* z-index: 10; */
-    /* padding-top: 5rem; */
-    background-color: var(--color-bg);
-    top: 0%;
-    color: var(--color-white);
-  }
   
-  
-  
-  
-  /* ==================== MEDIA QUERY (MEDIUM DEVICES) ================== */
-  @media screen and (max-width: 1024px) {
-    
-  }
-  /* ==================== MEDIA QUERY (SMALL DEVICES) ================== */
-  @media screen and (max-width: 600px) {
-    .navbar{
-      display: none;
-    }
-    .topnav {
-      display: block;
-      overflow: hidden;
-      background-color: var(--color-primary);
-      position: fixed;
-      width: 100%;
-      top: 0%;
-    }
-    /* Hide the links inside the navigation menu (except for logo/home) */
-    .topnav #myLinks {
-      display: none;
-    }
-    
-    /* Style navigation menu links */
-    .topnav a {
-      color: white;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-      display: block;
-    }
-    
-    /* Style the hamburger menu */
-    .topnav a.icon {
-      background: transparent;
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 0;
-      font-size: 30px;
-    }
-    .active {
-      background-color: var(--color-primary);
-      color: white;
-    }
-    .active > img{
-      width: 5rem;
-      margin: 0%;
-    }
-    /* =======================part-1================== */
-    .containerr {
-      flex-direction: column;
-      justify-content: center;
-    }
-    .side-containerr {
-      height: fit-content;
-      width: fit-content;
-      width: var(--container-width-sm);
-    }
-    .left-containerr {
-      margin-top: 5rem;
-      width: 50%;
-      height: auto;
-      margin-left: 0%;
-    }
-    .left-containerr:hover{
-      transform: translateX(0%);
-    }
-  
-    .left-containerr > h1 {
-      font-size: 0.8rem;
-      margin-top: 1rem;
-    }
-  
-    .left-container p {
-      font-size: 0.8rem;
-      margin: 0.5rem;
-    }
-    /* .btn {
-      padding: 0.8rem;
-      font-size: 0.8rem;
-      margin: 3rem 2rem;
-    } */
-    .side-container{
-      width: 100%;
-    }
-    .side-container > img {
-      height: 100%;
-      width: 100%;
-    }
-  
-    /* ============================== part-2 ======================= */
-    #events_container {
-      min-height: 60vh;
-      width: 100%;
-    }
-    
-    #events_writeup {
-      width: 100%;
-      padding: 10px;
-      transition: all 1s ease;
-      cursor: pointer;
-      text-align: center;
-    }
-  
-    #events_overlay_container {
-      width: 82%;
-    }
-    #events_writeup > p {
-      font-family: "Open Sans", sans-serif;
-      font-size: 1rem;
-      color: #fff;
-    }
-  
-    #events_title_image{
-      display: none;
-    }
-    
-    #view_more_events {
-      width: 80%;
-    }
-    #view_more_events > a {
-      font-size: 1rem;
-    }
-    
-    /* ============================== part-3 ======================= */
-    .third-container {
-      margin-top: 10rem;
-      margin: 2rem;
-    }
-    #contact_content {
-      flex-direction: column;
-      justify-content: space-around;
-    }
-    .contact-image {
-      width: 18rem;
-      height: 20rem;
-    }
-    .input_lg{
-      display: none;
-    }
-    .input_sm{
-      display: block;
-    }
-  
-    footer{
-      flex-direction: column;
-    }
-  }
-  
-
 
 
 .evnt-card{
@@ -509,6 +342,9 @@
     border: 1px solid rgb(12, 0, 87);
     overflow: hidden;
     box-shadow: 4px 2px 12px var(--color-bg-variant);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .evnt-img-container{
     height: 75vh;
@@ -529,6 +365,7 @@
   padding-left: 1rem;
 }
 .evnt-title{
+  text-align: center;
   font-weight: bold;
   font-family: 'Poller One', cursive;
 }
@@ -536,4 +373,16 @@
   font-size: 1.2rem;
   padding: 0 2%;
   font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (min-width: 700px) {
+  .evnt-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+  }
+  .evnt-img-container{
+    border-bottom: 1px solid black;
+  }
 }

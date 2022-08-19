@@ -1,19 +1,19 @@
 <%- include("partials/header") -%>
-<div class="flex">
-    <div class="evnt-card d-flex justify-content-start">
+
+    <div class="evnt-card">
         <div class="envt-img-container">
             <img class="evnt-img" src="<%=data.eventPosterURL%>" alt=""/>
         </div>
         <div class="evnt-body d-flex justify-content-around flex-column">
             <h1 class="evnt-title"><%=data.eventName%></h1>
-            <p class="evnt-text"> <%=data.eventDescription%></p>
+            <div class="date"></div>
             <div class="evnt-btn d-flex justify-content-around">
                 <button class="btn btn-outline-primary btn-lg" onclick="window.location='/event/<%=data.route%>/app'">Register with app</button>
                 <button class="btn btn-outline-danger btn-lg" onclick="window.location='/event/<%=data.route%>/form'">Register with web</button>
             </div>
+            <p class="evnt-text"> <%=data.eventDescription%></p>
         </div>
     </div>
-</div>
 
 <%- include("partials/footer") -%>
 

@@ -510,11 +510,19 @@
     overflow: hidden;
     box-shadow: 4px 2px 12px var(--color-bg-variant);
 }
-.evnt-img{
-
-    width: 35vw;
+.evnt-img-container{
+    height: 75vh;
+    width: 200vw;
     object-fit: contain;
-    /* width: 250px; */
+    
+    overflow: hidden;
+}
+.evnt-img{
+  height: 100%;
+  width: 200vw;
+  max-height: 100%;
+  max-width: 100%; 
+   
 }
 .evnt-body{
   box-shadow: -6px 0 5px rgba(14, 14, 14, 0.208);

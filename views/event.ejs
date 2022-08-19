@@ -1,7 +1,9 @@
 <%- include("partials/header") -%>
 <div class="flex">
     <div class="evnt-card d-flex justify-content-start">
-        <img class="evnt-img" src="<%=data.eventPosterURL%>" alt=""/>
+        <div class="envt-img-container">
+            <img class="evnt-img" src="<%=data.eventPosterURL%>" alt=""/>
+        </div>
         <div class="evnt-body d-flex justify-content-around flex-column">
             <h1 class="evnt-title"><%=data.eventName%></h1>
             <p class="evnt-text"> <%=data.eventDescription%></p>

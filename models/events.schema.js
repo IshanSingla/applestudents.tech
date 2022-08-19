@@ -8,7 +8,8 @@ const ServicesSchema = mongoose.Schema({
   eventDescription: String,
   eventRegistrationURL: String,
   isRegistrationOpen: Boolean,
-  eventCreationTimestamp: Number,
+  eventCategory: String,
+  eventCreationTimestamp: Date,
 
 });
 // ara same rakhna ki try ki ha

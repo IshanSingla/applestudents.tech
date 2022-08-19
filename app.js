@@ -16,14 +16,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('public', path.join(__dirname, 'public'));
 
 
-// Landing page
-app.get("/", async (req, res) => {
-  res.status(200).render("index");
-});
 
 // ALl Event Routes
-app.use('/event', require('./routes/event.routes'))
-
+app.use('/', require('./routes/event.routes'))
 
 connectDatabase().then(()=>{
   app.listen(PORT, () => { console.log("Listening on port: " + PORT); });

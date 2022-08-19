@@ -1,11 +1,20 @@
 const router = require("express").Router();
-
+const mongoose = require("mongoose");
 const Links = require("../models/events.schema");
 
 // All Events page
 router.get("/", async (req, res) => {
   const data = await Links.find().exec();
-  res.render("events", { eventData: data });
+  res.render("index", { eventData: data });
+});
+
+router.post("/create", async (req, res) => {
+  const { route, eventDescription, eventName, eventPosterURL, eventRegistrationURL, isRegistrationOpen, eventCategory, eventCreationTimestamp } = req.body;
+  new Links({
+    _id: new mongoose.Types.ObjectId(),
+    route, eventDescription, eventName, eventPosterURL, eventRegistrationURL, isRegistrationOpen, eventCategory, eventCreationTimestamp
+  }).save();
+  res.send("events save sucessfully")
 });
 
 // Event Dynamic Page /event/:route
@@ -17,6 +26,7 @@ router.get("/:route", async (req, res) => {
     res.render("event", { data });
   }
 });
+
 // /event/:route/app
 router.get("/:route/app", async (req, res) => {
   const data = await Links.findOne(req.params).exec();
@@ -62,6 +72,10 @@ router.get("/:route/form", async (req, res) => {
       res.status(200).render("eventStatus", { Status: false });
     }
   }
+});
+
+router.get('*', async (req, res) =>{
+  res.send('404');
 });
 
 module.exports = router;

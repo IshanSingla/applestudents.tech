@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Links = require("../models/events.schema");
 
 // All Events page
-router.get("/", async (req, res) => {
+router.get("/", (req, res) => {
   // const data = await Links.find().exec();
   res.render("index");
 });

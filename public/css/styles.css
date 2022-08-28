@@ -112,6 +112,8 @@
     width: var(--container-width-lg);
   }
   
+
+
   .left-containerr {
     background: linear-gradient(white, var(--color-primary-variant));
     margin-left: 3rem;
@@ -395,8 +397,14 @@
   justify-content: space-around;
   text-align: center;
 }
+.right-containerr{
+  display: none;
+}
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1250px) {
+  .right-containerr{
+    display: block;
+  } 
   .evnt-card{
     display: flex;
     flex-direction: row;

@@ -148,24 +148,11 @@
     font-style: italic;
   }
   
-  /* .btn {
-    background-color:var(--color-bg);
-    color: var(--color-white);
-    border: none;
-    border-radius: 10px;
-    padding: 0.8rem;
-    font-size: 1.2rem;
-    margin-top: 5rem;
-    transition: var(--transition);
-  } */
+  
   .ish {
     float: right; margin: 0.5rem; border-radius: 3px
   }
   
-  /* .btn:hover {
-    transform: scale(1.1);
-    background-color: #2c2c6c;
-  } */
   
   .side-containerr > img {
     height: 35rem;
@@ -268,14 +255,15 @@
     text-decoration: none;
   }
   
-  /*------------------ Contact Section --------------*/
-  /* *------part 3------* */
   .third-container {
     margin-top: 10rem;
     margin: 12rem;
     margin-bottom: 0;
   }
-  
+  .modal-divs:hover{
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+  }
   .head_text {
     font-size: 2.5rem;
     color: var(--color-text);
@@ -352,7 +340,6 @@
     height: 75vh;
     width: 200vw;
     object-fit: contain;
-    
     overflow: hidden;
 }
 .evnt-img{

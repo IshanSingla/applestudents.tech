@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const Links = require("../models/events.schema");
 
 // All Events page
-router.get("/", (req, res) => {
-  // const data = await Links.find().exec();
-  res.render("index");
+router.get("/", async(req, res) => {
+  const data = await Links.find().exec();
+  res.render("index",{data});
 });
 
 router.post("/create", async (req, res) => {
@@ -19,12 +19,14 @@ router.post("/create", async (req, res) => {
 
 // Event Dynamic Page /event/:route
 router.get("/:route", async (req, res) => {
+
   const data = await Links.findOne(req.params).exec();
   if (!data) {
     res.status(404).render("404Error");
   } else {
     res.render("event", { data });
   }
+
 });
 
 // /event/:route/app

@@ -43,7 +43,12 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+        <% for(let i = 0; i < data.length; i++) { %>
+          <div onclick="location.href='/<%=data[i].route%>'" class="modal-divs">
+            <p><%= data[i].eventName %></p>
+          </div>
+          
+        <% } %> 
       </div>
     
     </div>

@@ -101,6 +101,7 @@
 }
 .containerr {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
@@ -372,9 +373,6 @@ input:focus {
   justify-content: space-around;
   text-align: center;
 }
-.right-containerr {
-  display: none;
-}
 .modal-content {
   height: 450px;
   overflow: scroll;
@@ -447,8 +445,8 @@ input:focus {
   cursor: pointer;
 }
 @media only screen and (min-width: 1200px) {
-  .right-containerr {
-    display: block;
+  .containerr {
+    flex-direction: row;
   }
   .evnt-card {
     display: flex;

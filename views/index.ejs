@@ -44,10 +44,10 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <% for(let i = 0; i < data.length; i++) { %>
-          <div onclick="location.href='/<%=data[i].route%>'" class="modal-divs">
-            <p><%= data[i].eventName %></p>
+          <div class="cellphone-container" onclick="location.href='/<%=data[i].route%>'">    
+              <div class="movie-img" style="--radius: <%=data[i].eventPosterURL%>;"></div>
+              <h5><%= data[i].eventName %></h5>
           </div>
-          
         <% } %> 
       </div>
     
@@ -65,7 +65,7 @@
     
     // When the user clicks the button, open the modal 
     btn.onclick = function() {
-      modal.style.display = "block";
+      modal.style.display = "flex";
     }
     
     // When the user clicks on <span> (x), close the modal
@@ -81,20 +81,6 @@
     }
     </script>
   </section> 
-  <script src="socket.io/socket.io.js"></script>
-  <script>
-    const socket = io.connect('/');
-    socket.on('connect', function() {
-      console.log('connected');
-    socket.on("reconnect_error", (error) => {
-     socket.disconnect()
-   })
-   socket.on("chat", (payload) => {
-      window.location.reload()
-    });
-    });
-
-  </script>
 </body>
 
 </html>

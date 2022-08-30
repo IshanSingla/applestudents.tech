@@ -16,6 +16,11 @@ router.get("/", async (req, res) => {
   res.render("index", { data });
 });
 
+// 404 page
+router.get("/404", async (req, res) => {
+  res.status(404).render("404Error")
+});
+
 router.post("/create", async (req, res) => {
   const {route, eventDescription, eventName, eventPosterURL, eventRegistrationURL, isRegistrationOpen, eventCategory, eventCreationTimestamp } = req.body;
   new Links({
@@ -38,6 +43,9 @@ router.get("/:route", async (req, res) => {
   if (data) {
     res.render("event", { data });
   }
+  else{
+    res.status(404).redirect('/404');
+  }
 });
 
 // /:route/Register
@@ -55,6 +63,9 @@ router.get("/:route/Register", async (req, res) => {
     } else {
       res.status(200).render("eventStatus", { Status: false });
     }
+  }
+  else{
+    res.status(404).redirect('/404');
   }
 });
 
@@ -74,7 +85,7 @@ router.get("/:route/Register", async (req, res) => {
 // });
 
 router.get("*", async (req, res) => {
-  res.status(404).render("404Error");
+  res.status(404).redirect('/404');
 });
 
 module.exports = router;

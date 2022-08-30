@@ -48,7 +48,12 @@
               <div class="movie-img" style="--radius: <%=data[i].eventPosterURL%>;"></div>
               <h5><%= data[i].eventName %></h5>
           </div>
-        <% } %> 
+        <% } %> <% if(data.length==0 ) { %>
+          <div class="cellphone-container">    
+            <div class="movie-img" style="--radius: cc;"></div>
+            <h5>Comming Soon</h5>
+        </div>
+          <% } %> 
       </div>
     
     </div>

@@ -31,19 +31,21 @@
               <%= data.eventCreationTimestamp.toString()%>
             </div>
           </div>
-          <div class="evnt-btn d-flex justify-content-around">
+          
+          <div class="evnt-btn d-flex justify-content-around mb-2 mt-3">
+            
             <button
               class="btn btn-outline-primary btn-lg"
-              onclick="window.location='/<%=data.route%>/app'"
+              onclick="window.location='/<%=data.route%>/Register'"
             >
-              Register with app
+              Register Now
             </button>
-            <button
+            <!-- <button
               class="btn btn-outline-danger btn-lg"
               onclick="window.location='/<%=data.route%>/form'"
             >
               Register with web
-            </button>
+            </button> -->
           </div>
           <% var testVar=data.eventDescription %>
           <p class="evnt-text">

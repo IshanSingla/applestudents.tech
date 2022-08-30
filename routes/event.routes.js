@@ -4,16 +4,17 @@ const Links = require("../models/events.schema");
 
 // All Events page
 router.get("/", async (req, res) => {
-  const data = await Links.find(
-    {
-      $or:
-        [
-          {eventCategory:"current"},
-          {eventCategory:"upcomming"}
-        ]
-    }
-    ).exec();
-  res.render("index", { data });
+  // const data = await Links.find(
+  //   {
+  //     $or:
+  //       [
+  //         {eventCategory:"current"},
+  //         {eventCategory:"upcomming"}
+  //       ]
+  //   }
+  //   ).exec();
+  // res.render("index", { data });
+  res.status(200).redirect('https://ieee.chitkara.edu.in');
 });
 
 // 404 page

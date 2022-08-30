@@ -10,15 +10,16 @@
       crossorigin="anonymous"
     />
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"> -->
-    <title>Document</title>
+    <title>IEEE CIET</title>
   </head>
   <body>
-    <section class="topFrontSection">
+    <a href="/">
       <div class="navLogo" href="/">
         <div>
           <img src="/assets/ieee.png" class="logo" alt="" />
         </div>
       </div>
+    </a>
       <div class="evnt-status">
         <% if( Status ) { %>
         <h1>App is not ready for <%= OsName %></h1>
@@ -32,6 +33,5 @@
         <h1>Form Closed</h1>
         <%} %>
       </div>
-    </section>
   </body>
 </html>

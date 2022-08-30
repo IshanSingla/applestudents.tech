@@ -10,15 +10,16 @@
       crossorigin="anonymous"
     />
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"> -->
-    <title>Document</title>
+    <title>Event <%=data.eventName%></title>
   </head>
   <body>
-    <section class="topFrontSection">
+    <a href="/">
       <div class="navLogo" href="/">
         <div>
           <img src="/assets/ieee.png" class="logo" alt="" />
         </div>
       </div>
+    </a>
       <div class="evnt-card">
         <div class="envt-img-container">
           <img class="evnt-img" src="<%=data.eventPosterURL%>" alt="" />
@@ -53,7 +54,6 @@
           </p>
         </div>
       </div>
-    </section>
     <script>
 
     </script>

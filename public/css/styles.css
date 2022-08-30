@@ -4,6 +4,9 @@
 * {
   padding: 0%;
 }
+body{
+  overflow: hidden;
+}
 .navLogo {
   display: flex;
   align-items: center;
@@ -359,7 +362,7 @@ input:focus {
 .iframe-form {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   text-align: center;
 }

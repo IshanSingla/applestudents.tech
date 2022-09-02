@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"> -->
-    <title>Document</title>
+    <title>IEEE CIET</title>
   </head>
   <body>
     <a href="/">
@@ -20,18 +20,12 @@
         </div>
       </div>
     </a>
-      <div class="page-wrap d-flex flex-row align-items-center">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-              <span class="display-1 d-block">404</span>
-              <div class="mb-4 lead">
-                The page you are looking for was not found.
-              </div>
-              <a href="/" class="btn btn-link">Back to Home</a>
-            </div>
-          </div>
-        </div>
+    <div class="d-flex container">
+      <div class="col-md-12 text-center">
+        <span class="display-1 d-block"><%= spam %></span>
+        <div class="mb-4 lead"><%= description %></div>
+        <a href="/" class="btn btn-link">Back to Home</a>
       </div>
+    </div>
   </body>
 </html>

@@ -20,6 +20,8 @@ app
 //   http.get("http://ieeewebapp.herokuapp.com");
 // }, 300000); // every 5 minutes (300000)
 
-app.listen(Number(process.env.PORT) || 3000, async () => {
-  await connectDatabase();
-});
+const PORT = Number(process.env.PORT)|| 4000;
+
+connectDatabase().then(()=>{
+  app.listen(PORT, () => { console.log("Listening on port: " + PORT); });
+}).catch((err)=>{console.log("Error at Connecting Database ",err)})

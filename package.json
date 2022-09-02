@@ -5,7 +5,8 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "dev": "nodemon -e js,ejs,json app.js"
+        "dev": "nodemon -e js,ejs,json app.js",
+        "deploy": "vercel --prod"
     },
     "nodemonConfig": {
         "ignore": [],

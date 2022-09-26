@@ -1,6 +1,7 @@
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import Header from "./components/Header";
 
 function App() {
   const particlesInit = async (main) => {
@@ -10,13 +11,14 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
           fullScreen: {
             enable: true,
-            zIndex: 0,
+            zIndex: -1,
           },
           particles: {
             number: {

@@ -5,7 +5,6 @@ import Header from "./components/Header";
 
 function App() {
   const particlesInit = async (main) => {
-    console.log(main);
     await loadFull(main);
   };
 

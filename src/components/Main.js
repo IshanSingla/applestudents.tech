@@ -1,13 +1,19 @@
 import React from "react";
+import logo from "../images/logo.png"
 
 function Main() {
   return (
-    <div className="w-screen h-[75vh] bg-[#1c7987] flex flex-col items-center justify-center">
-      <div className="flex flex-col text-[#e2eff0] space-y-4 items-center">
-        <font className="text-4xl font-serif first-letter:text-5xl uppercase tracking-wide">
+    <div className="w-screen h-[75vh] bg-gradient-to-b from-[#1c7987] to- flex flex-col items-center justify-center">
+      <div className="w-full flex items-center justify-center">
+        <div className="md:w-[30rem] md:h-[30rem]">
+            <img src={logo} alt="" className="w-full"/>
+        </div>
+      </div>
+      <div className="flex px-4 md:px-0 flex-col text-[#1c7987] space-y-2 md:space-y-4 items-center">
+        <font className="text-center text-2xl md:text-4xl font-serif first-letter:text-3xl md:first-letter:text-5xl uppercase tracking-wide">
           Center of excellence
         </font>
-        <font className="text-3xl font-serif uppercase tracking-wide">
+        <font className="text-xl text-center md:text-3xl font-serif uppercase tracking-wide">
           operating system environment
         </font>
       </div>

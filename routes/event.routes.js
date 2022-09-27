@@ -2,6 +2,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const events = require("../models/events.schema");
 const User = require("../models/users.schema");
+const registration = require("../models/registration.schema");
 const { isLoggedIn } = require("../utils/auth");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -106,6 +107,19 @@ router.get("/:route", async (req, res) => {
 
 // /:route/Register
 router.get("/:route/Register", isLoggedIn, async (req, res) => {
+  const data = await events.findOne(req.params).exec();
+  const { token } = req.cookies;
+  const verify = jwt.verify(token, JWT_SECRET);
+  let userdata = await User.findById(verify._id);
+  if (userdata.rollNo != null && data.isRegistrationOpen && data != null && userdata != null ) {
+    let newdata = await new registration({
+      _id: new mongoose.Types.ObjectId(),
+      event: data._id,
+      user: userdata._id,
+    }).save();
+    res.redirect(`/${data.route}`);
+  }
+
   res.send("Register");
 });
 router.post("/:route/Register", isLoggedIn, async (req, res) => {

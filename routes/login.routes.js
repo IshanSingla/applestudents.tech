@@ -14,7 +14,7 @@ router.get(
     failureRedirect: "/login",
   }), (req, res) => {
     res.cookie("token", req.user);
-    res.redirect("/CongratulationApple");
+    res.redirect("/BienvenvueApple");
   }
 );
 

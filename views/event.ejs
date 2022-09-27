@@ -5,19 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title><%=data.eventName%> || Apple Student Community || Powered By </title>
+    <script defer="defer" src="./static/js/main.3b155fbf.js"></script>
+    <link href="./static/css/main.28f2623b.css" rel="stylesheet" />
   </head>
   <body>
-      <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
-          <div class="flex flex-col text-center w-full justify-center">
-            <%- da %>
-            <button style="width: 100px;" class="text-center from-gray-400" onclick="window.location='/<%=data.route%>/Register'">click here to regester<svg class="h-8 w-8 text-red-500"  width="150" height="150" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M9 7c-3 0-4 3-4 5.5 0 3 2 7.5 4 7.5 1.088-.046 1.679-.5 3-.5 1.312 0 1.5.5 3 .5s4-3 4-5c-.028-.01-2.472-.403-2.5-3-.019-2.17 2.416-2.954 2.5-3-1.023-1.492-2.951-1.963-3.5-2-1.433-.111-2.83 1-3.5 1-.68 0-1.9-1-3-1z" />  <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" /></svg></button>
-            <h1 class="text-xl font-medium title-font mb-4 text-gray-900"><%=data.eventName%></h1>
-            <% var testVar=data.eventDescription %>
-            <p class="lg:w-2/3 mx-auto leading-relaxed text-base"><%= data.eventCreationTimestamp.toString().split(" G")[0] %></p>
-            <p class="lg:w-2/3 mx-auto leading-relaxed text-base"><%- testVar %></p>
-          </div>
-        </div>
-      </section>
+    <div id="root"></div>
+      
   </body>
 </html>

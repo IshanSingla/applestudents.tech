@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import Header from "./components/Header";
+import Main from "./components/Main";
 
 function App() {
   const particlesInit = async (main) => {
     await loadFull(main);
   };
 
+  useEffect(() => {
+    if (!(localStorage.getItem("visited") === "true")) {
+      setTimeout(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+      }, 1000); // 1 second
+      localStorage.setItem("visited", "true");
+    }
+  }, []);
+
   return (
     <div className="App">
+      <Main />
       <Header />
       <Particles
         id="tsparticles"
@@ -54,7 +65,7 @@ function App() {
           },
           retina_detect: true,
           background: {
-            color: "#111",
+            color: "#a9d8d9",
             image: "",
             position: "50% 50%",
             repeat: "no-repeat",

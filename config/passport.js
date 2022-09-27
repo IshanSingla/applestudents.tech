@@ -6,7 +6,7 @@ const strategy = new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:5000/login/callback",
+    callbackURL: "https://applestudents.tech/login/callback",
   },
   async function (accessToken, refreshToken, profile, done) {
     if (profile._json.hd === "chitkara.edu.in") {

@@ -1,5 +1,5 @@
 {
-    "name": "devicedetection",
+    "name": "applestudents.tech",
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
@@ -13,13 +13,18 @@
         "delay": 500
     },
     "keywords": [],
-    "author": "",
+    "author": "Ishan Singla",
     "license": "ISC",
     "dependencies": {
+        "cookie-parser": "^1.4.6",
         "dotenv": "^16.0.1",
         "ejs": "^3.1.8",
         "express": "^4.14.0",
-        "mongoose": "^6.5.2"
+        "express-session": "^1.17.3",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.5.2",
+        "passport": "^0.6.0",
+        "passport-google-oauth": "^2.0.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.19"

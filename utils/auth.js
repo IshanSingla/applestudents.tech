@@ -2,14 +2,16 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
 const User = require("../models/users.schema");
 
-const verifyToken = (token) => {
+const verifyToken = async (token) => {
   try {
     const verify = jwt.verify(token, JWT_SECRET);
     if (verify._id) {
-      return true;
-    } else {
-      return false;
+      let users=await User.findById(verify._id);
+      if (users) {
+        return true;
+      }
     }
+    return false;
   } catch (error) {
     return false;
   }

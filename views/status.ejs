@@ -7,16 +7,12 @@
     <title>Apple Student Community || Powered By </title>
   </head>
   <body>
-    <section class="text-gray-600 body-font flex flex-col h-screen my-auto items-center">
-      <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-        <div class="text-center lg:w-2/3 w-full">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><%= spam %></h1>
-          <p class="mb-8 leading-relaxed"><%= description %></p>
-          <div class="flex justify-center">
-            <button onclick="window.location='/'" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Back to Home</button>
-          </div>
-        </div>
+    <div class="w-screen h-screen bg-gradient-to-b space-y-8 from-[#1c7987] flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center space-y-4">
+          <h1 class="text-3xl md:text-5xl text-center font-bold text-[#1c7987]"><%= spam %></h1>
+          <p class="text-[#1c7987] text-2xl"><%= description %></p>
       </div>
-    </section>
+      <button onclick="window.location='/'" class="md:text-xl bg-[rgba(0,0,0,0.1)] text-[#138099] font-bold px-4 md:px-8 py-2 rounded-xl">Back to Home</button>
+  </div>
   </body>
 </html>

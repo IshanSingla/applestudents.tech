@@ -22,26 +22,26 @@ router.get("/404", async (req, res) => {
 });
 
 // for future use
-router.post("/create", async (req, res) => {
-  const {
-    route,
-    eventDescription,
-    eventName,
-    isRegistrationOpen,
-    eventCategory,
-    eventCreationTimestamp,
-  } = req.body;
-  let newdata = await new events({
-    _id: new mongoose.Types.ObjectId(),
-    route,
-    eventDescription,
-    eventName,
-    isRegistrationOpen,
-    eventCategory,
-    eventCreationTimestamp,
-  }).save();
-  res.send(`events save sucessfully${newdata}}`);
-});
+// router.post("/create", async (req, res) => {
+//   const {
+//     route,
+//     eventDescription,
+//     eventName,
+//     isRegistrationOpen,
+//     eventCategory,
+//     eventCreationTimestamp,
+//   } = req.body;
+//   let newdata = await new events({
+//     _id: new mongoose.Types.ObjectId(),
+//     route,
+//     eventDescription,
+//     eventName,
+//     isRegistrationOpen,
+//     eventCategory,
+//     eventCreationTimestamp,
+//   }).save();
+//   res.send(`events save sucessfully${newdata}}`);
+// });
 
 router.use("/login", require("./login.routes"));
 // Event Dynamic Page /event/:route
@@ -111,26 +111,32 @@ router.get("/:route/Register", isLoggedIn, async (req, res) => {
   const { token } = req.cookies;
   const verify = jwt.verify(token, JWT_SECRET);
   let userdata = await User.findById(verify._id);
-  if (userdata.rollNo != null && data.isRegistrationOpen && data != null && userdata != null ) {
+  if ( data.isRegistrationOpen && data != null && userdata != null ) {
+    let date=await registration.findOne(
+      { userId: userdata._id, eventId: data._id },
+    )
+    if (date) {
+      res.status(404).render("status", {
+        spam: "you are already registered",
+        description: "",
+      });
+    }
     let newdata = await new registration({
       _id: new mongoose.Types.ObjectId(),
       event: data._id,
       user: userdata._id,
     }).save();
-    res.redirect(`/${data.route}`);
-  }
 
-  res.send("Register");
-});
-router.post("/:route/Register", isLoggedIn, async (req, res) => {
-  const { token } = req.cookies;
-  const verify = jwt.verify(token, JWT_SECRET);
-  const { phoneNumber, rollNo } = req.body;
-  const data = await User.findByIdAndUpdate(verify._id, {
-    phoneNumber,
-    rollNo,
-  });
-  res.redirect(`/${req.params.route}`);
+    res.status(404).render("status", {
+      spam: "Thank you for registering",
+      description: "",
+    });
+  } else {
+    res.status(404).render("status", {
+      spam: "Registration is closed",
+      description: "",
+    });
+  }
 });
 
 router.get("*", async (req, res) => {

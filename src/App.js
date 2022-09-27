@@ -35,7 +35,7 @@ function App() {
               value: 150,
             },
             color: {
-              value: "#fff",
+              value: "#111",
             },
             shape: {
               type: "circle",
@@ -65,7 +65,7 @@ function App() {
           },
           retina_detect: true,
           background: {
-            color: "#a4c1c2",
+            color: "#e2eff0",
             image: "",
             position: "50% 50%",
             repeat: "no-repeat",

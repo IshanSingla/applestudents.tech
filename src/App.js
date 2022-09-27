@@ -10,11 +10,11 @@ function App() {
   };
 
   useEffect(() => {
-    if (!(localStorage.getItem("visited") === "true")) {
+    if (!(sessionStorage.getItem("visited") === "true")) {
       setTimeout(() => {
         window.scrollTo(0, document.body.scrollHeight);
       }, 1000); // 1 second
-      localStorage.setItem("visited", "true");
+      sessionStorage.setItem("visited", "true");
     }
   }, []);
 
@@ -65,7 +65,7 @@ function App() {
           },
           retina_detect: true,
           background: {
-            color: "#a9d8d9",
+            color: "#a4c1c2",
             image: "",
             position: "50% 50%",
             repeat: "no-repeat",

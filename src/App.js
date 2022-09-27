@@ -9,6 +9,8 @@ function App() {
     await loadFull(main);
   };
 
+  let width = window.innerWidth;
+
   useEffect(() => {
     if (!(sessionStorage.getItem("visited") === "true")) {
       setTimeout(() => {
@@ -41,7 +43,7 @@ function App() {
               type: "circle",
             },
             opacity: {
-              value: 0.8,
+              value: 0.6,
               random: true,
               anim: {
                 enable: false,
@@ -51,7 +53,7 @@ function App() {
               },
             },
             size: {
-              value: 5,
+              value: width < 768 ? 3 : 5,
               random: false,
             },
             move: {

@@ -112,29 +112,30 @@ router.get("/:route/Register", isLoggedIn, async (req, res) => {
   const { token } = req.cookies;
   const verify = jwt.verify(token, JWT_SECRET);
   let userdata = await User.findById(verify._id);
-  if ( data.isRegistrationOpen && data != null && userdata != null ) {
-    let date=await registration.findOne(
-      { userId: userdata._id, eventId: data._id },
-    )
+  if (data.isRegistrationOpen && data != null && userdata != null) {
+    let date = await registration.findOne({
+      userId: userdata._id,
+      eventId: data._id,
+    });
     if (date) {
-      res.status(404).render("status", {
+      return res.status(404).render("status", {
         spam: "you are already registered",
         description: "",
       });
-    }
-    
-    let newdata = await new registration({
-      _id: new mongoose.Types.ObjectId(),
-      event: data._id,
-      user: userdata._id,
-    }).save();
+    } else {
+      let newdata = await new registration({
+        _id: new mongoose.Types.ObjectId(),
+        event: data._id,
+        user: userdata._id,
+      }).save();
 
-    res.status(404).render("status", {
-      spam: "Thank you for registering",
-      description: "",
-    });
+      return res.status(200).render("status", {
+        spam: "Thank you for registering",
+        description: "",
+      });
+    }
   } else {
-    res.status(404).render("status", {
+    return res.status(404).render("status", {
       spam: "Registration is closed",
       description: "",
     });

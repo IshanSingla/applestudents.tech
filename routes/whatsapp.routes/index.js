@@ -22,8 +22,8 @@ router.get("/webhook", (req, res) => {
   }
 });
 
-const sending = async (phon_no_id, from, msg_body) => {
-  let datas = await registration.find({ event: msg_body }).exec();
+const sending = async (phon_no_id, from) => {
+  let datas = await registration.find().exec();
   datas.forEach(async (data) => {
     try {
       let userdata = await User.findById(data.user).exec();
@@ -53,8 +53,8 @@ router.post("/webhook", async (req, res) => {
       let phon_no_id =
         req.body.entry[0].changes[0].value.metadata.phone_number_id;
       let from = req.body.entry[0].changes[0].value.messages[0].from;
-      let name = req.body.entry[0].changes[0].value.contacts[0].profile.name;
-      let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body;
+    //   let name = req.body.entry[0].changes[0].value.contacts[0].profile.name;
+    //   let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body;
       await axios({
         method: "POST",
         url: `https://graph.facebook.com/v13.0/${phon_no_id}/messages?access_token=${process.env.ACCESS_TOKEN}`,
@@ -62,14 +62,14 @@ router.post("/webhook", async (req, res) => {
           messaging_product: "whatsapp",
           to: from,
           text: {
-            body: `Hello ${name}! \nEvent: ${msg_body}`,
+            body: `Hello \nEvent: ${msg_body}`,
           },
         },
         headers: {
           "Content-Type": "application/json",
         },
       });
-      sending(phon_no_id, from, msg_body);
+      sending(phon_no_id, from);
       res.sendStatus(200);
     } else {
       res.sendStatus(404);

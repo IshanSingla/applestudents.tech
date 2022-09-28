@@ -10,7 +10,7 @@ router.get(
 
 router.get(
   "/error",
-  ()=>{
+  (req, res)=>{
     res.status(404).render("status", {
       spam: "We are sorry",
       description: "You can login only with your college email id.",

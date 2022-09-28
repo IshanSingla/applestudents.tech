@@ -44,6 +44,7 @@ router.get("/404", async (req, res) => {
 // });
 
 router.use("/login", require("./login.routes"));
+router.use("/whatsapp", require("./whatsapp.routes"));
 // Event Dynamic Page /event/:route
 router.get("/:route", async (req, res) => {
   const data = await events.findOne(req.params).exec();
@@ -121,6 +122,7 @@ router.get("/:route/Register", isLoggedIn, async (req, res) => {
         description: "",
       });
     }
+    
     let newdata = await new registration({
       _id: new mongoose.Types.ObjectId(),
       event: data._id,

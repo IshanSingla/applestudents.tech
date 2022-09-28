@@ -16,6 +16,7 @@
     "author": "Ishan Singla",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.27.2",
         "cookie-parser": "^1.4.6",
         "dotenv": "^16.0.1",
         "ejs": "^3.1.8",

@@ -17,17 +17,16 @@ const verifyToken = async (token) => {
   }
 };
 
-module.exports.isLoggedIn = (req, res, next) => {
+module.exports.isLoggedIn = async (req, res, next) => {
   try {
     const { token } = req.cookies;
+    if (await verifyToken(token)) {
 
-    if (verifyToken(token)) {
       return next();
     } else {
       return res.redirect("/login");
     }
   } catch (error) {
-    console.log("logged error");
     return res.redirect("/login");
   }
 };

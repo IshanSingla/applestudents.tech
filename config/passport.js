@@ -9,6 +9,7 @@ const strategy = new GoogleStrategy(
     callbackURL: "https://applestudents.tech/login/callback",
   },
   async function (accessToken, refreshToken, profile, done) {
+    console.log("profile", profile);
     if (profile._json.hd === "chitkara.edu.in") {
       const { picture, email, name } = profile._json;
       let user = await User.findOne({ email }).exec();

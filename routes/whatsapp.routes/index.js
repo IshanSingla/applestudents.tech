@@ -23,7 +23,7 @@ router.get("/webhook", (req, res) => {
 });
 
 const sending = async (phon_no_id, from, msg_body) => {
-  let datas = await registration.find({event: msg_body}).exec();
+  let datas = await registration.find({ event: msg_body }).exec();
   datas.forEach(async (data) => {
     try {
       let userdata = await User.findById(data.user).exec();
@@ -47,30 +47,34 @@ const sending = async (phon_no_id, from, msg_body) => {
 
 // webhook route post for get messages
 router.post("/webhook", async (req, res) => {
-  if (req.body.entry) {
-    // perameters from send messages
-    let phon_no_id =
-      req.body.entry[0].changes[0].value.metadata.phone_number_id;
-    let from = req.body.entry[0].changes[0].value.messages[0].from;
-    let name = req.body.entry[0].changes[0].value.contacts[0].profile.name;
-    let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body;
-    await axios({
-      method: "POST",
-      url: `https://graph.facebook.com/v13.0/${phon_no_id}/messages?access_token=${process.env.ACCESS_TOKEN}`,
-      data: {
-        messaging_product: "whatsapp",
-        to: from,
-        text: {
-          body: `Hello ${name}! \nEvent: ${msg_body}`,
+  try {
+    if (req.body.entry) {
+      // perameters from send messages
+      let phon_no_id =
+        req.body.entry[0].changes[0].value.metadata.phone_number_id;
+      let from = req.body.entry[0].changes[0].value.messages[0].from;
+      let name = req.body.entry[0].changes[0].value.contacts[0].profile.name;
+      let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body;
+      await axios({
+        method: "POST",
+        url: `https://graph.facebook.com/v13.0/${phon_no_id}/messages?access_token=${process.env.ACCESS_TOKEN}`,
+        data: {
+          messaging_product: "whatsapp",
+          to: from,
+          text: {
+            body: `Hello ${name}! \nEvent: ${msg_body}`,
+          },
         },
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    sending(phon_no_id, from, msg_body);
-    res.sendStatus(200);
-  } else {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      sending(phon_no_id, from, msg_body);
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
     res.sendStatus(404);
   }
 });

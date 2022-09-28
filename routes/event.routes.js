@@ -114,7 +114,8 @@ router.get("/:route/Register", isLoggedIn, async (req, res) => {
   let userdata = await User.findById(verify._id);
   if (data.isRegistrationOpen && data != null && userdata != null) {
     let date = await registration.findOne({
-      userId: userdata._id,
+      user: userdata._id,
+      event: data._id,
     });
     if (date) {
       return res.status(404).render("status", {

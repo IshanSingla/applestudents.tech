@@ -53,8 +53,19 @@ module.exports.dashbord = async () => {
                             <p>Total Registrations</p>
                         </div>
                     </div>
-                    <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-                    </div>
+                    <a href="/adminpanel/qrscanner" class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                        <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-2xl">Click Here</p>
+                            <p>ForQr Scanner</p>
+                        </div>
+                    </a>
 
                 </div>
                 <!-- ./Statistics Cards -->
@@ -114,6 +125,12 @@ module.exports.dashbord = async () => {
                                             </th>
                                             <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                                 Email
+                                            </th>
+                                            <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                                PhoneNumber
+                                            </th>
+                                            <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                                RollNo
                                             </th>
                                         </tr>
                                     </thead>
@@ -278,7 +295,7 @@ let eventlist = async () => {
 };
 
 let userlist = async () => {
-  let data = await User.find().sort({ $natural: -1 }).limit(50);
+  let data = await User.find().sort({ $natural: -1 });
   return data
     .map(
       (item) => `
@@ -288,6 +305,12 @@ let userlist = async () => {
     </th>
     <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
       ${item.email}
+    </td>
+    <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+      ${item.phoneNumber}
+    </td>
+    <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+      ${item.rollNo}
     </td>
    </tr>
   `

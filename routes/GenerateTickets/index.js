@@ -7,6 +7,7 @@ var path = require("path");
 
 // home route
 router.get("/:id", async (req, res) => {
+  try{
   let data = await registration.findById(req.params.id).exec();
   if (data) {
     let userdata = await User.findById(data.user).exec();
@@ -45,6 +46,13 @@ router.get("/:id", async (req, res) => {
       });
     }
   } else {
+    res.status(404).render("status", {
+      spam: "Invalid Ticket Id",
+      description: "Contact Admin for more details.",
+      custom: ""
+    });
+  }
+  } catch (err) {
     res.status(404).render("status", {
       spam: "Invalid Ticket Id",
       description: "Contact Admin for more details.",

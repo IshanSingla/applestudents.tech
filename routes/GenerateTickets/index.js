@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const User = require("../../models/users.schema");
 const registration = require("../../models/registration.schema");
-var images = require("images");
+// var images = require("images");
 var path = require("path");
-const download = require("image-downloader");
+// const download = require("image-downloader");
 
 // home route
 router.get("/:id", async (req, res) => {
@@ -14,7 +14,7 @@ router.get("/:id", async (req, res) => {
       res.status(200).render("status", {
         spam: "Welcome to the event",
         description: "Show qr to enter in event",
-        custom: `<img style="width:70%" src='/GenerateTickets/${req.params.id}/Image'/>`,
+        custom: `<center><img style="width:85%" src='/GenerateTickets/${req.params.id}/Image'/></center>`,
       });
     } else {
       res.status(200).render("status", {
@@ -67,13 +67,13 @@ router.get("/:id/Image", async (req, res) => {
   if (data) {
     let userdata = await User.findById(data.user).exec();
     if (userdata.rollNo) {
-      await download.image({
-        url: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${req.params.id}`,
-        dest: path.join(__dirname, "./qr.png"), // will be saved to /path/to/dest/image.jpg
-      });
-      images(path.join(__dirname, "./ticket.png")) //Load image from file
-        .draw(images(path.join(__dirname, "./qr.png")).size(270), 1000, 300) //Drawn logo at coordinates (10,10)
-        .save(path.join(__dirname, "./output.png")); //Save the image to a file
+      // await download.image({
+      //   url: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${req.params.id}`,
+      //   dest: path.join(__dirname, "./qr.png"), // will be saved to /path/to/dest/image.jpg
+      // });
+      // images(path.join(__dirname, "./ticket.png")) //Load image from file
+      //   .draw(images(path.join(__dirname, "./qr.png")).size(270), 1000, 300) //Drawn logo at coordinates (10,10)
+      //   .save(path.join(__dirname, "./output.png")); //Save the image to a file
       res.sendFile(path.join(__dirname, "./output.png"));
       // fs.unlink(path.join(__dirname, "./output.png"));
       // fs.unlink(path.join(__dirname, "./or.png"));

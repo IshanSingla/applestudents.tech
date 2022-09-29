@@ -25,7 +25,7 @@ router.get(
     failureRedirect: "/login/error",
   }), (req, res) => {
     res.cookie("token", req.user);
-    res.redirect("/BienvenvueApple");
+    res.redirect("/BienvenvueApple/Register");
   }
 );
 

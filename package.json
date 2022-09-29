@@ -22,8 +22,11 @@
         "ejs": "^3.1.8",
         "express": "^4.14.0",
         "express-session": "^1.17.3",
+        "image-downloader": "^4.3.0",
+        "images": "^3.2.4",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.5.2",
+        "nodemailer": "^6.7.5",
         "passport": "^0.6.0",
         "passport-google-oauth": "^2.0.0"
     },

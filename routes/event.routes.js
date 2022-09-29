@@ -4,6 +4,7 @@ const events = require("../models/events.schema");
 const User = require("../models/users.schema");
 const registration = require("../models/registration.schema");
 const { isLoggedIn } = require("../utils/auth");
+const {isAdminLoggedIn} = require("../utils/admin");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -44,7 +45,9 @@ router.get("/404", async (req, res) => {
 // });
 
 router.use("/login", require("./login.routes"));
+router.use("/adminpanel", isAdminLoggedIn, require("./admin"));
 router.use("/whatsapp", require("./whatsapp.routes"));
+router.use("/GenerateTickets", require("./GenerateTickets"));
 // Event Dynamic Page /event/:route
 router.get("/:route", async (req, res) => {
   const data = await events.findOne(req.params).exec();

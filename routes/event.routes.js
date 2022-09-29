@@ -18,6 +18,7 @@ router.get("/404", async (req, res) => {
   res.status(404).render("status", {
     spam: "404",
     description: "The page you are looking for was not found.",
+    custom: ""
   });
   // res.status(404).render("404Error")
 });
@@ -124,6 +125,8 @@ router.get("/:route/Register", isLoggedIn, async (req, res) => {
       return res.status(404).render("status", {
         spam: "you are already registered",
         description: "",
+        custom: ""
+
       });
     } else {
       let newdata = await new registration({
@@ -135,12 +138,14 @@ router.get("/:route/Register", isLoggedIn, async (req, res) => {
       return res.status(200).render("status", {
         spam: "Thank you for registering",
         description: "",
+        custom: ""
       });
     }
   } else {
     return res.status(404).render("status", {
       spam: "Registration is closed",
       description: "",
+      custom: ""
     });
   }
 });

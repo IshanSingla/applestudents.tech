@@ -13,7 +13,7 @@ router.get("/:id", async (req, res) => {
     if (userdata.rollNo) {
       res.status(200).render("status", {
         spam: "Welcome to the event",
-        description: "",
+        description: "Show qr to enter in event",
         custom: `<img style="width:70%" src='/GenerateTickets/${req.params.id}/Image'/>`,
       });
     } else {
@@ -48,6 +48,7 @@ router.get("/:id", async (req, res) => {
     res.status(404).render("status", {
       spam: "Invalid Ticket Id",
       description: "Contact Admin for more details.",
+      custom: ""
     });
   }
 });

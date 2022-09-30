@@ -18,7 +18,7 @@
   <script>
     const onScanSuccess = async (qrCodeMessage) => {
       try {
-        fetch("/adminpanel/qrscanner", {
+        await fetch("/adminpanel/qrscanner", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

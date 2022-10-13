@@ -1,6 +1,6 @@
 {
   "name": "apple-frontend",
-  "homepage": "https://ishansingla.github.io/applestudents.tech/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "react-tsparticles": "^2.3.2",
     "tailwindcss": "^3.1.8",

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^1.3.5",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "mongoose": "^7.0.3",
@@ -18,6 +19,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-tsparticles": "^2.9.3",
+    "sass": "^1.61.0",
     "tsparticles": "^2.9.3"
   },
   "devDependencies": {

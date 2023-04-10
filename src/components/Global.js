@@ -4,7 +4,7 @@ import Background from "./Background";
 
 export default function Global({children, title="Apple Community"}) {
   return (
-    <main>
+    <main className="w-screen h-screen bg-gradient-to-b from-[#1c7987] to- ">
       <Head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,0 +1,46 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+
+.slide {
+	opacity: 0.5;
+	transform: scale(0.7);
+	transition: 0.5s;
+	filter: blur(2px);
+}
+
+.slide-active{
+	opacity: 1;
+	transform: scale(1);
+	transition: 0.5s;
+	filter: blur(0px);
+}
+
+.arrow{
+	position: absolute;
+	top: 49%;
+	font-size: 30px;
+	z-index: 8888;
+}
+
+.arrow:hover{
+	cursor: pointer;
+}
+
+@media (min-width: 900px) {
+	.arrow-right{
+		right: 50px;
+	}
+	.arrow-left{
+		left: 50px;
+	}
+}
+@media (max-width: 900px) {
+	.arrow-right{
+		right: 10px;
+	}
+	.arrow-left{
+		left: 10px;
+	}
+}

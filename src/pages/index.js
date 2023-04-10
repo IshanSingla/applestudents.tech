@@ -5,7 +5,7 @@ import Global from "@/components/Global";
 export default function index() {
   return (
     <Global>
-      <div className="w-screen h-[75vh] bg-gradient-to-b from-[#1c7987] to- flex flex-col items-center justify-center">
+      <div className="h-[75vh] flex flex-col items-center justify-center">
         <div className="w-full flex items-center justify-center">
           <div className="w-64 h-64 md:w-[30rem] md:h-[30rem]">
             <img src="/logo.png" alt="" className="w-full" />

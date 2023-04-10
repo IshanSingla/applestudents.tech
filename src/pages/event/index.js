@@ -1,25 +1,48 @@
 import Global from "@/components/Global";
-import { connectDatabase } from "@/server/config/mongodb";
-import eventSchema from "@/server/models/event.schema";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
-import React from "react";
-import { authOptions } from "../api/auth/[...nextauth]";
+import React, { useEffect } from "react";
+import axios from "axios";
+import Image from "next/image";
+import Loader from "@/components/Loader";
 
-export default function Events({ data=[] }) {
+export default function Events({ data = [] }) {
+  const [events, setEvents] = React.useState();
+  useEffect(() => {
+    axios.get("/api/event").then(({ data }) => {
+      setEvents(data.data);
+    });
+  }, []);
+  if (!events) {
+    return (
+      <Global>
+        <Loader />
+      </Global>
+    );
+  }
+
   return (
     <Global>
-      <div className="w-screen  bg-gradient-to-b from-[#1c7987] to- flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
         <section className="body-font">
           <h1 className="flex item-center justify-center p-6 text-2xl text-white">
             All Events
           </h1>
           <div className="container px-5 py-6 mx-auto">
             <div className="flex flex-wrap -m-4 gap-[1%] p-3">
-              {data.map((item, index) => (
-                <Link href={`event/${item.route}`} key={index} className="w-full  bg-[#1c7987]/50 mb-[1%]">
+              {events.map((item, index) => (
+                <Link
+                  href={`event/${item.route}`}
+                  key={index}
+                  className="w-full  bg-[#1c7987]/50 mb-[1%]"
+                >
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                    <img className="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog" />
+                    <Image
+                      width={500}
+                      height={500}
+                      className="lg:h-48 md:h-36 w-full object-cover object-center"
+                      src="/logo.png"
+                      alt="blog"
+                    />
                     <div className="p-6">
                       <h2 className="tracking-widest text-xs title-font font-medium text-white mb-1">
                         CATEGORY
@@ -71,13 +94,4 @@ export default function Events({ data=[] }) {
       </div>
     </Global>
   );
-}
-
-export async function getServerSideProps({ req, res }) {
-  const session = await getServerSession(req, res, authOptions);
-  await connectDatabase();
-  let data = await eventSchema.find();
-  return {
-    props: { session, data: JSON.parse(JSON.stringify(data)) },
-  };
 }

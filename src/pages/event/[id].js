@@ -161,9 +161,13 @@ export default function SingleEvent({ session, data }) {
 
 export async function getServerSideProps({ req, res, query }) {
   const session = await getServerSession(req, res, authOptions);
+  console.log(session);
   await connectDatabase();
   let data = await eventSchema.findOne({ route: query.id });
   return {
-    props: { session, data: JSON.parse(JSON.stringify(data)) },
+    props: {
+      session: JSON.parse(JSON.stringify(session)),
+      data: JSON.parse(JSON.stringify(data)),
+    },
   };
 }

@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Background from "./Background";
 
-export default function Global({ children, title = "Apple Community" }) {
+export default function Global({ children, title = "", description = "" }) {
   return (
     <main className="w-screen h-screen bg-gradient-to-b from-[#1c7987] to- ">
       <Head>
@@ -11,14 +11,23 @@ export default function Global({ children, title = "Apple Community" }) {
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="Apple Community - A place to discuss Apple tech and share ideas."
+          content={
+            description +
+            "Apple Community - A place to discuss Apple tech and share ideas."
+          }
         />
         <link rel="apple-touch-icon" href="/logo.png"></link>
         <meta
           property="og:title"
-          content="Apple Community - A place to discuss Apple tech and share ideas."
+          content={
+            description +
+            "Apple Community - A place to discuss Apple tech and share ideas."
+          }
         />
-        <meta property="og:image" content="https://applestudents.tech/logo.png" />
+        <meta
+          property="og:image"
+          content="https://applestudents.tech/logo.png"
+        />
         <meta property="og:site_name" content="applestudents" />
         <meta property="og:url" content="https://applestudents.tech/" />
         <meta property="og:type" content="website" />
@@ -29,7 +38,7 @@ export default function Global({ children, title = "Apple Community" }) {
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content="https://applestudents.tech/" />
         <meta property="twitter:site" content="@applestudents" />
-        <title>{title}</title>
+        <title>{title + "Apple Community"}</title>
       </Head>
       <Background />
       {children}

@@ -13,7 +13,7 @@ const registrationSchema = mongoose.Schema(
     },
     verified: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     entryVerified: {
       type: Boolean,

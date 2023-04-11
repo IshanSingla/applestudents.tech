@@ -31,6 +31,10 @@ const eventSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    emailVerification: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

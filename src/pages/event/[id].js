@@ -7,19 +7,37 @@ import eventSchema from "@/server/models/event.schema";
 import { useRouter } from "next/router";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import axios from "axios";
 
 export default function SingleEvent({ session, data }) {
   const link = useRouter().asPath;
   async function handle() {
     if (session) {
-      signOut();
+      if (
+        data.emailVerification &&
+        !session?.user?.email?.includes("@chitkara.edu.in")
+      ) {
+        signOut();
+      } else {
+        axios
+          .get("/api/event/" + data.route + "/regester")
+          .then((res) => {
+            alert(res.data.message);
+          })
+          .catch((err) => {
+            alert(err.response.data.message);
+          });
+      }
     } else {
       signIn("google", { callbackUrl: "http://localhost:3000" + link });
     }
   }
-  const date = new Date(data?.eventCreationTimestamp)?.toUTCString();
+  const date = new Date(data?.eventDate)?.toUTCString();
   return (
-    <Global title={(data.eventName??"")+" | Apple Community"}>
+    <Global
+      title={(data?.eventName ?? "") + " |"}
+      description={"Event Description: " + data?.eventDescription}
+    >
       <div className="w-screen bg-gradient-to-b from-[#1c7987] to- flex items-center justify-center">
         <section className="text-white h-full w-[90%] xl:w-[80%] mt-[10%] bg-[#1c7987]/50">
           <div className="container xl:px-5 py-20 mx-auto flex flex-col">
@@ -35,7 +53,9 @@ export default function SingleEvent({ session, data }) {
                   />
                   <div className="flex flex-col items-center text-center justify-center">
                     <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                    <h1 className="sm:text-base text-xs md:text-xl lg:text-2xl">{data.eventName}</h1>
+                    <h1 className="sm:text-base text-xs md:text-xl lg:text-2xl">
+                      {data.eventName}
+                    </h1>
                   </div>
                 </div>
                 <div className="lg:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center lg:text-left">
@@ -74,8 +94,24 @@ export default function SingleEvent({ session, data }) {
                           Your Details
                         </h2>
                         <div className="lg:w-[20%] w-[40%] h-1 bg-indigo-500 rounded"></div>
-
                       </div>
+                      <div className="flex flex-col">
+                        <div className="flex items-center">
+                          <img
+                            height={50}
+                            width={50}
+                            src={
+                              data.emailVerification &&
+                              !session?.user?.email?.includes("@chitkara.edu.in")
+                                ? "https://img.icons8.com/fluency/512/id-not-verified.png"
+                                : "https://img.icons8.com/material-outlined/512/approval.png"
+                            }
+                            className="w-10 h-10 rounded-full"
+                            alt="profile"
+                          />
+                        </div>
+                      </div>
+
                       <div>
                         <div className="flex flex-col">
                           <div className="flex items-center">
@@ -102,7 +138,12 @@ export default function SingleEvent({ session, data }) {
                         onClick={handle}
                         className="mt-6 flex mx-auto bg-[#8dd3d2] text-[#138099] border-0 py-2 px-8 focus:outline-none hover:bg-[#4f9e9d] rounded md:text-sm text-[0.7rem] lg:text-lg"
                       >
-                        {session?.user ? "Register" : "Login"}
+                        {session?.user
+                          ? data.emailVerification &&
+                            !session?.user?.email?.includes("@chitkara.edu.in")
+                            ? "Logout"
+                            : "Regester"
+                          : "Login"}
                       </button>
                     </div>
                   </div>

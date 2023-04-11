@@ -101,10 +101,14 @@ export default function SingleEvent({ session, data }) {
                             height={50}
                             width={50}
                             src={
-                              data.emailVerification &&
-                              !session?.user?.email?.includes("@chitkara.edu.in")
-                                ? "https://img.icons8.com/fluency/512/id-not-verified.png"
-                                : "https://img.icons8.com/material-outlined/512/approval.png"
+                              session?.user
+                                ? data.emailVerification &&
+                                  !session?.user?.email?.includes(
+                                    "@chitkara.edu.in"
+                                  )
+                                  ? "https://img.icons8.com/fluency/512/id-not-verified.png"
+                                  : "https://img.icons8.com/material-outlined/512/approval.png"
+                                : "https://img.icons8.com/fluency/512/id-not-verified.png"
                             }
                             className="w-10 h-10 rounded-full"
                             alt="profile"

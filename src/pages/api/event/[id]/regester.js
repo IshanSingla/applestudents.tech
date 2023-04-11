@@ -3,6 +3,7 @@ const eventSchema = require("@/server/models/event.schema");
 const { getServerSession } = require("next-auth");
 const { authOptions } = require("../../auth/[...nextauth]");
 const registrationSchema = require("@/server/models/registration.schema");
+const mongoose = require("mongoose");
 
 module.exports = async (req, res) => {
   const session = await getServerSession(req, res, authOptions);
@@ -36,12 +37,10 @@ module.exports = async (req, res) => {
           verified: data?.eventAutoVerify,
         }).save();
 
-        return res
-          .status(200)
-          .json({
-            message: "Registered",
-            applrovalWait: data?.eventAutoVerify,
-          });
+        return res.status(200).json({
+          message: "Registered",
+          applrovalWait: data?.eventAutoVerify,
+        });
       }
     } else {
       res.status(404).json({ message: "Registration Closed" });

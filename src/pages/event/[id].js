@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Global from "@/components/Global";
 import { connectDatabase } from "@/server/config/mongodb";
 import { getServerSession } from "next-auth";
@@ -20,7 +19,7 @@ export default function SingleEvent({ session, data }) {
   }
   const date = new Date(data?.eventCreationTimestamp)?.toUTCString();
   return (
-    <Global>
+    <Global title={(data.eventName??"")+" | Apple Community"}>
       <div className="w-screen bg-gradient-to-b from-[#1c7987] to- flex items-center justify-center">
         <section className="text-white h-full w-[90%] xl:w-[80%] mt-[10%] bg-[#1c7987]/50">
           <div className="container xl:px-5 py-20 mx-auto flex flex-col">

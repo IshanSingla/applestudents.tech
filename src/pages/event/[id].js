@@ -1,16 +1,14 @@
-import Global from "@/components/Global";
-import { connectDatabase } from "@/server/config/mongodb";
 import { getServerSession } from "next-auth";
-import React from "react";
-import { authOptions } from "../api/auth/[...nextauth]";
-import eventSchema from "@/server/models/event.schema";
-import { useRouter } from "next/router";
-import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import { signIn, signOut } from "next-auth/react";
 import axios from "axios";
 
+import Global from "@/components/Global";
+import { connectDatabase } from "@/server/config/mongodb";
+import eventSchema from "@/server/models/event.schema";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+
 export default function SingleEvent({ session, data }) {
-  const link = useRouter().asPath;
   async function handle() {
     if (session) {
       if (
@@ -29,7 +27,7 @@ export default function SingleEvent({ session, data }) {
           });
       }
     } else {
-      signIn("google", { callbackUrl: "http://localhost:3000" + link });
+      signIn("google", { callbackUrl: window?.location?.href });
     }
   }
   const date = new Date(data?.eventDate)?.toUTCString();
